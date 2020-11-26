@@ -62,12 +62,12 @@ namespace EvoS.DirectoryServer
                 PlayerData.Player p;
                 try
                 {
-                    p = PlayerData.GetPlayer(request.AuthInfo.Handle);
+                    p = PlayerData.GetPlayer(request.AuthInfo.Handle, request.AuthInfo.AccountId);
                     if (p == null)
                     {
                         Log.Print(LogType.Warning, $"Player {request.AuthInfo.Handle} doesnt exists");
                         PlayerData.CreatePlayer(request.AuthInfo.Handle);
-                        p = PlayerData.GetPlayer(request.AuthInfo.Handle);
+                        p = PlayerData.GetPlayer(request.AuthInfo.Handle, request.AuthInfo.AccountId);
                         if (p != null)
                         {
                             Log.Print(LogType.Debug, $"Succesfully Registered {p.UserName}");

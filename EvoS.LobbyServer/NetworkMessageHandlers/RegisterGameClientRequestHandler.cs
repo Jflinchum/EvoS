@@ -21,7 +21,7 @@ namespace EvoS.LobbyServer.NetworkMessageHandlers
         public async Task OnMessage(LobbyServerConnection connection, object requestData)
         {
             RegisterGameClientRequest request = (RegisterGameClientRequest) requestData;
-            PlayerData.Player p = PlayerData.GetPlayer(request.SessionInfo.Handle);
+            PlayerData.Player p = PlayerData.GetPlayer(request.SessionInfo.Handle, request.SessionInfo.AccountId);
 
             connection.SessionToken = request.SessionInfo.SessionToken;
 
@@ -113,7 +113,8 @@ namespace EvoS.LobbyServer.NetworkMessageHandlers
             response.SessionInfo.ConnectionAddress = "127.0.0.1";
             response.SessionInfo.LanguageCode = "EN";
             response.AuthInfo = request.AuthInfo;
-            response.AuthInfo.AccountId = request.SessionInfo.AccountId; // Override AuthInfo.AccountId with SessionInfo.AccountID, The account id from SessionInfo is set in the DirectoryServer and has the accountid value from database for the client username
+            //response.AuthInfo.AccountId = request.SessionInfo.AccountId; // Override AuthInfo.AccountId with SessionInfo.AccountID, The account id from SessionInfo is set in the DirectoryServer and has the accountid value from database for the client username
+            Log.Print(LogType.Lobby, $"AccountId {request.AuthInfo.AccountId} (-> {request.SessionInfo.AccountId})");
             response.DevServerConnectionUrl = "127.0.0.1"; // What is this?
             response.AuthInfo.AccountStatus = null;
             response.Status = new LobbyStatusNotification

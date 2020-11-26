@@ -31,6 +31,7 @@ namespace CentralServer.LobbyServer
             RegisterHandler(new EvosMessageDelegate<ClientErrorSummary>(HandleClientErrorSummary));
             RegisterHandler(new EvosMessageDelegate<PreviousGameInfoRequest>(HandlePreviousGameInfoRequest));
             RegisterHandler(new EvosMessageDelegate<PurchaseTintRequest>(HandlePurchaseTintRequest));
+            RegisterHandler(new EvosMessageDelegate<LeaveGameRequest>(HandleLeaveGameRequest));
 
             /*
             RegisterHandler(new EvosMessageDelegate<PurchaseModResponse>(HandlePurchaseModRequest));
@@ -235,7 +236,17 @@ namespace CentralServer.LobbyServer
             sk.Save();
         }
 
-        
+        public void HandleLeaveGameRequest(LeaveGameRequest request)
+        {
+            Console.WriteLine("LeaveGameRequest " + JsonConvert.SerializeObject(request));
+
+            LeaveGameResponse response = new LeaveGameResponse()
+            {
+                Success = true,
+                ResponseId = request.RequestId
+            };
+            Send(response);
+        }
 
 
     }

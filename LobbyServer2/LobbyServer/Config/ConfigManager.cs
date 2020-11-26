@@ -6,7 +6,7 @@ namespace CentralServer.LobbyServer.Config
 {
     static class ConfigManager
     {
-        public static string MOTDPopUpText = "Welcome back";
+        public static string MOTDPopUpText = "";
         public static string MOTDText = "Lobby server version 2";
 
         public static string PatchNotesHeader = "Evos Emulator v0.1";

@@ -28,7 +28,8 @@ namespace CentralServer.BridgeServer
             SetTeamInfo,
             Start,
             Stop,
-            GameStatusChange
+            GameStatusChange,
+            PlayerLeaving
         }
 
         protected override void OnMessage(MessageEventArgs e)
@@ -110,6 +111,29 @@ namespace CentralServer.BridgeServer
             stream.WriteByte((byte)BridgeMessageType.Start);
             Send(stream.ToArray());
             EvoS.Framework.Logging.Log.Print(LogType.Game, "Starting Game Server");
+        }
+
+        public void SendPlayerLeavingNotification(long accountId, bool isPermanent, GameResult gameResult)
+        {
+            MemoryStream stream = new MemoryStream();
+            stream.WriteByte((byte)BridgeMessageType.PlayerLeaving);
+            string jsonData = JsonConvert.SerializeObject(new PlayerLeavingNotification()
+            {
+                AccountId = accountId,
+                IsPermanent = isPermanent,
+                GameResult = gameResult
+            });
+            stream.Write(GetBytesSpan(jsonData));
+            Send(stream.ToArray());
+            Log.Print(LogType.Game, $"Player {accountId} leaves game");
+        }
+
+        [Serializable]
+        class PlayerLeavingNotification
+        {
+            public long AccountId;
+            public bool IsPermanent;
+            public GameResult GameResult;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace CentralServer.LobbyServer.Gamemode
             {
                 new GameSubType {
                     LocalizedName = "GenericPractice@SubTypes",
-                    GameMapConfigs = new List<GameMapConfig>{ new GameMapConfig(Maps.VR_Practice, true) },
+                    GameMapConfigs = new List<GameMapConfig>{ new GameMapConfig(Maps.Skyway_Deathmatch, true) },
                     RewardBucket = GameBalanceVars.GameRewardBucketType.NoRewards,
                     PersistedStatBucket = PersistedStatBucket.DoNotPersist,
                     TeamAPlayers = 1,
@@ -106,7 +106,7 @@ namespace CentralServer.LobbyServer.Gamemode
                 new GameSubType
                 {
                     LocalizedName = "GenericPvP@SubTypes",
-                    GameMapConfigs = new List<GameMapConfig>{ new GameMapConfig(Maps.VR_Practice, true) },
+                    GameMapConfigs = new List<GameMapConfig>{ new GameMapConfig(Maps.Skyway_Deathmatch, true) },
                     RewardBucket = GameBalanceVars.GameRewardBucketType.NoRewards,
                     PersistedStatBucket = PersistedStatBucket.DoNotPersist,
                     TeamAPlayers = 1,

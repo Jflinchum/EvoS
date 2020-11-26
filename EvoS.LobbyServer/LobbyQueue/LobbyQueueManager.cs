@@ -249,13 +249,13 @@ namespace EvoS.LobbyServer
                 TeamBBots = 2,
                 ResolveTimeoutLimit = 160,
                 RoomName = "default",
-                Map = Maps.VR_Practice,
+                Map = Maps.Skyway_Deathmatch,
                 SubTypes = new List<GameSubType>
                 {
                     new GameSubType
                     {
                         DuplicationRule = FreelancerDuplicationRuleTypes.noneInTeam,
-                        GameMapConfigs = new List<GameMapConfig> { new GameMapConfig(Maps.VR_Practice) },
+                        GameMapConfigs = new List<GameMapConfig> { new GameMapConfig(Maps.Skyway_Deathmatch) },
                         InstructionsToDisplay = GameSubType.GameLoadScreenInstructions.Default,
                         LocalizedName = "GenericPractice@SubTypes",
                         PersistedStatBucket = PersistedStatBucket.Deathmatch_Unranked,

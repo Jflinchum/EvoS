@@ -19,12 +19,12 @@ namespace EvoS.Framework.DataAccess
             public int SelectedRibbonID;
         }
 
-        public static Player GetPlayer(string UserName)
+        public static Player GetPlayer(string UserName, long defaultAccountId)
         {
             if (!EvoSGameConfig.UseDatabase) {
                 return new Player()
                 {
-                    AccountId = DateTime.Now.Ticks,
+                    AccountId = defaultAccountId,
                     UserName = UserName,
                     LastSelectedCharacter = CharacterType.BazookaGirl,
                     SelectedTitleID = -1,

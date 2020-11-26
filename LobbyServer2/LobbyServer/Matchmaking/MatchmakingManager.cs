@@ -36,6 +36,7 @@ namespace CentralServer.LobbyServer.Matchmaking
                 ActiveHumanPlayers = 1,
                 ActivePlayers = 1,
                 CreateTimestamp = DateTime.Now.Ticks,
+                GameServerProcessCode = "Artemis" + DateTime.Now.Ticks,
                 GameConfig = new LobbyGameConfig 
                 {
                     GameOptionFlags = GameOptionFlag.NoInputIdleDisconnect & GameOptionFlag.NoInputIdleDisconnect,
@@ -43,7 +44,7 @@ namespace CentralServer.LobbyServer.Matchmaking
                     GameType = GameType.Practice,
                     InstanceSubTypeBit = 1,
                     IsActive = true,
-                    Map = Maps.VR_Practice,
+                    Map = Maps.Skyway_Deathmatch,
                     ResolveTimeoutLimit = 1600, // TODO ?
                     RoomName = "",
                     Spectators = 0,
