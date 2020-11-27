@@ -44,7 +44,7 @@ namespace CentralServer.LobbyServer.Matchmaking
                     GameType = GameType.Practice,
                     InstanceSubTypeBit = 1,
                     IsActive = true,
-                    Map = Maps.Skyway_Deathmatch,
+                    Map = Maps.VR_Practice,
                     ResolveTimeoutLimit = 1600, // TODO ?
                     RoomName = "",
                     Spectators = 0,

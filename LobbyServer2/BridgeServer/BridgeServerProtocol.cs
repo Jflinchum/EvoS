@@ -125,7 +125,7 @@ namespace CentralServer.BridgeServer
             });
             stream.Write(GetBytesSpan(jsonData));
             Send(stream.ToArray());
-            Log.Print(LogType.Game, $"Player {accountId} leaves game");
+            EvoS.Framework.Logging.Log.Print(LogType.Game, $"Player {accountId} leaves game");
         }
 
         [Serializable]
